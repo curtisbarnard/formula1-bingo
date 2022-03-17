@@ -1,9 +1,9 @@
-# formula1-bingo
-Formula 1 bingo game for each grand prix race
+# Formula 1 Bingo - 2022
+Browser based Formula 1 bingo game for each Grand Prix race
 
 ## Ideas for webpage
-- [ ] With all cards flips reveals an image
 - [x] Post on GitHub
+- [ ] With all cards flips reveals an image
 - [ ] Make mobile version have less tiles so it's readable
 - [ ] On desktop user can select number of tiles
 - [ ] Five points per card flipped

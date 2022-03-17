@@ -1,0 +1,74 @@
+/* Base Styles */
+*{
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: 'Titillium Web', sans-serif;
+}
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+header,
+.score,
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header {
+  width: 100%;
+  height: 10vh;
+  align-items: flex-end;
+}
+.score {
+  width: 100%;
+  height: 15vh;
+}
+main {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.card {
+  flex-basis: 33.33%;
+  border: 1px solid black;
+  aspect-ratio: 1/1;
+  padding: 1rem;
+}
+.free {
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: #053A2B;
+  color: #fff;
+}
+
+
+
+/******************************************
+/* Font Styles
+/*******************************************/
+
+h1 {
+  font-size: 3.2rem;
+  font-weight: 700;
+}
+h2 {
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+.card {
+  font-size: 1.8rem;
+}
+
+/******************************************
+/* Card Actions
+/*******************************************/
+
+.flipped {
+  color: #fff;
+  background: #E40D1D;
+}

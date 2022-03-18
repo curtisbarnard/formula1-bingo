@@ -22,29 +22,62 @@ const bahrainBingoCards = [
     'Haas ends up in the points'
 ]
 
-// listen for a click on a card
-const cards = document.getElementsByClassName('card')
-for (let item of cards) {
-    item.addEventListener('click', function flipCard () {
-        item.classList.toggle('flipped')
-    })
-}
-
-
-// function toggle the flipped class on card
-
-// function that adds the current points
-    // add 5 points for card being flipped
-
-// function that writes points to the DOM
-
-// check for boxes all in a row, add 10 point per box
-    // 123 or 456 or 789 or 147 or 258 or 369 or 159 or 357
-
+// randomly assign bingo phrases to cards
 for (item of cards) {
+    // generate random number based on array size
     let randomNumber = Math.floor(Math.random() * standardBingoCards.length)
+    // excludes the free or gratis center card
     if (!(item.classList.contains("free"))) {
+        // place phrase into card on DOM
         item.innerText = standardBingoCards.splice(randomNumber, 1)
     }
 }
+
+// Arrays for checking bingo patterns
+const acrossPatterns = [[1,2,3], [4,5,6], [7,8,9]]
+const downPatterns = [[1,4,7], [2,5,8], [3,6,9]]
+const diagonalPatterns = [[1,5,9], [3,5,7]]
+
+// listen for a click on a card
+const cards = document.getElementsByClassName('card')
+for (let item of cards) {
+    // function toggle the flipped class on card
+    item.addEventListener('click', function flipCard () {
+        item.classList.toggle('flipped')
+        // grabs all cards that are flipped
+        const flippedCards = document.getElementsByClassName('flipped')
+        // adds up all standard points
+        let pointValue = flippedCards.length * 5
+        // check for bingo down and across
+            pointValue += checkForBingo(acrossPatterns)
+            pointValue += checkForBingo(downPatterns)
+            pointValue += checkForBingo(diagonalPatterns)
+        // writes points to the DOM
+        document.querySelector('.points').innerText = pointValue
+    })
+}
+
+// function that takes an array of bingo patterns and checks if there are bingos
+function checkForBingo (array) {
+    let numOfFlipped = 0
+    let numOfBingos = 0
+    // loop through bingo patterns
+    for (let i = 0; i < array.length; i++) {
+        numOfFlipped = 0
+        // loop through cards
+        for (let j = 0; j < 3; j++) {
+            if (cards[array[i][j] - 1].classList.contains('flipped')) {
+                // flipped card counter
+                numOfFlipped += 1 
+                if (numOfFlipped === 3) {
+                    // bingo counter
+                    numOfBingos += 1
+                }
+            }
+        }
+    }
+    // return total points based on number of bingos
+    return numOfBingos * 30
+}
+
 

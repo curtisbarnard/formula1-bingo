@@ -1,3 +1,6 @@
+// listen for a click on a card
+const cards = document.getElementsByClassName('card')
+
 // Array of standard strings
 const standardBingoCards = [
     '"Massive shunt"',
@@ -38,8 +41,6 @@ const acrossPatterns = [[1,2,3], [4,5,6], [7,8,9]]
 const downPatterns = [[1,4,7], [2,5,8], [3,6,9]]
 const diagonalPatterns = [[1,5,9], [3,5,7]]
 
-// listen for a click on a card
-const cards = document.getElementsByClassName('card')
 for (let item of cards) {
     // function toggle the flipped class on card
     item.addEventListener('click', function flipCard () {

@@ -1,6 +1,6 @@
 // listen for a click on a card
 const cards = document.getElementsByClassName('card')
-const frontCards = document.getElementsByClassName('front')
+let frontCards = document.getElementsByClassName('front')
 
 // Array of standard strings
 const standardBingoCards = [
@@ -9,13 +9,18 @@ const standardBingoCards = [
     'There\'s a crash on lap 1',
     'Russell beats Hamilton',
     'Alonso in the points',
-    'Someone says the word porpoising',
     'Someone pits in last 5 laps to grab fastest lap',
     'Someone mentions the "little bits"',
     '4+ DNF\'s',
     'Gap to the winner is 10+ seconds',
     '"DAY-bree"',
-    'Someone says DRS train'
+    'Someone says DRS train',
+    'Wheel covers are called cake tins',
+    'Non-F1 celebrity in the garage',
+    'Wheel gets stuck in pit stop',
+    'Rainbow flag',
+    'Crofty says stinker',
+    'Hulkenberg replaces a driver'
 ]
 
 const bahrainBingoCards = [
@@ -23,19 +28,25 @@ const bahrainBingoCards = [
     '"Hulkenberg has 3rd most race starts without a win"',
     'Someone talks about McLaren\'s brake issues',
     'Someone talks about Ricciardo giving Vettel COVID',
-    'Haas ends up in the points'
+    'Haas ends up in the points',
+    'Someone says the word porpoising',
+    '"Hulk"'
 ]
 
+
 // randomly assign bingo phrases to cards
-for (item of frontCards) {
-    // generate random number based on array size
-    let randomNumber = Math.floor(Math.random() * standardBingoCards.length)
-    // excludes the free or gratis center card
-    if (!(item.classList.contains("free"))) {
-        // place phrase into card on DOM
-        item.innerText = standardBingoCards.splice(randomNumber, 1)
+function assignPhrases () {
+    for (item of frontCards) {
+        // generate random number based on array size
+        let randomNumber = Math.floor(Math.random() * standardBingoCards.length)
+        // excludes the free or gratis center card
+        if (!(item.classList.contains("free"))) {
+            // place phrase into card on DOM
+            item.innerText = standardBingoCards.splice(randomNumber, 1)
+        }
     }
 }
+assignPhrases()
 
 // Arrays for checking bingo patterns
 const acrossPatterns = [[1,2,3], [4,5,6], [7,8,9]]

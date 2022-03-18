@@ -1,5 +1,6 @@
 // listen for a click on a card
 const cards = document.getElementsByClassName('card')
+const frontCards = document.getElementsByClassName('front')
 
 // Array of standard strings
 const standardBingoCards = [
@@ -26,7 +27,7 @@ const bahrainBingoCards = [
 ]
 
 // randomly assign bingo phrases to cards
-for (item of cards) {
+for (item of frontCards) {
     // generate random number based on array size
     let randomNumber = Math.floor(Math.random() * standardBingoCards.length)
     // excludes the free or gratis center card

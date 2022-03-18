@@ -18,7 +18,8 @@ body {
 /*******************************************/
 header,
 .score,
-.card {
+.card,
+.front {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -45,8 +46,62 @@ main {
   border-radius: .5rem;
   background: #fff;
   aspect-ratio: 1/1;
-  padding: 1rem;
+  transform-style: preserve-3d;
+  transition: all 0.8s ease;
 }
+.front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  backface-visibility: hidden;
+}
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+}
+.back1,
+.back2,
+.back3,
+.back4,
+.back5,
+.back6,
+.back7,
+.back8,
+.back9 {
+ background-image: url(../img/test-img.jpg);
+ background-repeat: no-repeat;
+ background-position: top left;
+ background-size: 95vw auto;
+}
+.back2 {
+  background-position: top center;
+ }
+.back3 {
+  background-position: top right;
+ }
+.back4 {
+  background-position: center left;
+ }
+.back5 {
+  background-position: center;
+ }
+.back6 {
+  background-position: center right;
+ }
+.back7 {
+  background-position: bottom left;
+ }
+.back8 {
+  background-position: bottom center;
+ }
+.back9 {
+  background-position: bottom right;
+ }
+
 .free {
   flex-direction: column;
   justify-content: space-evenly;
@@ -90,6 +145,5 @@ h2 {
 /*******************************************/
 
 .flipped {
-  color: #fff;
-  background: #E40D1D;
+  transform: rotateY(180deg);
 }

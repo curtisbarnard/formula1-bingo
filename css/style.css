@@ -69,7 +69,7 @@ main {
   padding: 1rem;
   backface-visibility: hidden;
   background: #fff;
-  border: 1px solid #15151E;
+  border: 2px solid #15151E;
   border-radius: .5rem;
 }
 .back {
@@ -154,6 +154,30 @@ footer svg {
   .back9 {
     background: url(../img/desktop1.jpg), #15151E;
   }
+  .back2 {
+    background-position: top center;
+   }
+  .back3 {
+    background-position: top right;
+   }
+  .back4 {
+    background-position: center left;
+   }
+  .back5 {
+    background-position: center;
+   }
+  .back6 {
+    background-position: center right;
+   }
+  .back7 {
+    background-position: bottom left;
+   }
+  .back8 {
+    background-position: bottom center;
+   }
+  .back9 {
+    background-position: bottom right;
+   }
 }
 
 @media all and (min-width: 900px ) {

@@ -90,8 +90,7 @@ main {
 .back7,
 .back8,
 .back9 {
-  /*  */
- background: url(../img/test-img.jpg), #15151E;
+ background: url(../img/mobile1.jpg), #15151E;
  background-repeat: no-repeat;
  background-position: top left;
  background-size: 95vw auto;
@@ -124,7 +123,6 @@ main {
 .free {
   flex-direction: column;
   justify-content: space-evenly;
-  /* color: #fff; */
 }
 footer {
   background: #15151E;
@@ -144,6 +142,17 @@ footer svg {
   .race {
     justify-content: center;
     gap: 35px;
+  }
+  .back1,
+  .back2,
+  .back3,
+  .back4,
+  .back5,
+  .back6,
+  .back7,
+  .back8,
+  .back9 {
+    background: url(../img/desktop1.jpg), #15151E;
   }
 }
 

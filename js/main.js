@@ -20,7 +20,15 @@ const standardBingoCards = [
     'Wheel gets stuck in pit stop',
     'Rainbow flag',
     'Crofty says stinker',
-    'Hulkenberg replaces a driver'
+    'Hulkenberg replaces a driver',
+    'Commentator mentions Guanyu Zhou being the first Chinese F1 driver',
+    '"Full Beans"',
+    '"Car looks like it\'s on rails"',
+    'Bottas finishes ahead of both Mercedes',
+    'Horner\s foot tapping',
+    'Toto shaking his head in disgust',
+    'Ferrari Wins',
+    'Haas Podium'
 ]
 
 const bahrainBingoCards = [
@@ -30,19 +38,23 @@ const bahrainBingoCards = [
     'Someone talks about Ricciardo giving Vettel COVID',
     'Haas ends up in the points',
     'Someone says the word porpoising',
-    '"Hulk"'
+    '"Hulk"',
+    'Commentator mentions Lewis\' yellow T-bar cam',
+    '"Mirror Wars"',
+    'Haas in the points'
 ]
 
+const currentRaceBingoCards = standardBingoCards.concat(bahrainBingoCards)
 
 // randomly assign bingo phrases to cards
 function assignPhrases () {
     for (item of frontCards) {
         // generate random number based on array size
-        let randomNumber = Math.floor(Math.random() * standardBingoCards.length)
+        let randomNumber = Math.floor(Math.random() * currentRaceBingoCards.length)
         // excludes the free or gratis center card
         if (!(item.classList.contains("free"))) {
             // place phrase into card on DOM
-            item.innerText = standardBingoCards.splice(randomNumber, 1)
+            item.innerText = currentRaceBingoCards.splice(randomNumber, 1)
         }
     }
 }

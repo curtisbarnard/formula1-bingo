@@ -63,8 +63,14 @@ assignPhrases()
 // generating background image
 function randomBGImage () {
     let randomNumber = Math.ceil(Math.random() * 3)
+    let viewportWidth = window.innerWidth
+    console.log(viewportWidth)
     for (i = 1; i < 10; i++) {
-        document.querySelector('.back' + i).style.backgroundImage = "url(img/mobile" + randomNumber + ".jpg)"
+        if (viewportWidth < 550) {
+            document.querySelector('.back' + i).style.backgroundImage = "url(img/mobile" + randomNumber + ".jpg)"
+        } else {
+            document.querySelector('.back' + i).style.backgroundImage = "url(img/desktop" + randomNumber + ".jpg)"
+        }
     }
 }
 

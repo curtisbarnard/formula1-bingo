@@ -64,7 +64,7 @@ assignPhrases()
 function randomBGImage () {
     let randomNumber = Math.ceil(Math.random() * 3)
     for (i = 1; i < 10; i++) {
-        document.querySelector('.back' + i).style.backgroundImage = "url(img/desktop" + randomNumber + ".jpg)"
+        document.querySelector('.back' + i).style.backgroundImage = "url(img/mobile" + randomNumber + ".jpg)"
     }
 }
 

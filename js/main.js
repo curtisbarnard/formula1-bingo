@@ -60,6 +60,16 @@ function assignPhrases () {
 }
 assignPhrases()
 
+// generating background image
+function randomBGImage () {
+    let randomNumber = Math.ceil(Math.random() * 3)
+    for (i = 1; i < 10; i++) {
+        document.querySelector('.back' + i).style.backgroundImage = "url(img/desktop" + randomNumber + ".jpg)"
+    }
+}
+
+randomBGImage()
+
 // Arrays for checking bingo patterns
 const acrossPatterns = [[1,2,3], [4,5,6], [7,8,9]]
 const downPatterns = [[1,4,7], [2,5,8], [3,6,9]]

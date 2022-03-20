@@ -15,6 +15,7 @@ Browser based Formula 1 bingo game for each Grand Prix race
     - Submit a PR once finished.
 - If you have a new idea that isn't covered by an issue, please submit a new one
 - I'm always looking for new phrases/track specific bingo items!
+- I'm always looking for free no attribution images to use.
 
 ## Ideas for webpage
 - [x] Post on GitHub

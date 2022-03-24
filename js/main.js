@@ -41,10 +41,21 @@ const bahrainBingoCards = [
     '"Hulk"',
     'Commentator mentions Lewis\' yellow T-bar cam',
     '"Mirror Wars"',
-    'Haas in the points'
+    'Haas in the points',
 ]
 
-const currentRaceBingoCards = standardBingoCards.concat(bahrainBingoCards)
+const saudiBingoCards = [
+    'Someone talks about the Mercedes side pods',
+    'Someone talks about McLaren\'s brake issues',
+    'Someone talks about Ricciardo giving Vettel COVID',
+    'Haas ends up in the points',
+    'Someone says the word porpoising',
+    'Commentator mentions Lewis\' yellow T-bar cam',
+    '"Mirror Wars"',
+    'A Red Bull DNF\'s',
+]
+
+const currentRaceBingoCards = standardBingoCards.concat(saudiBingoCards)
 
 // randomly assign bingo phrases to cards
 function assignPhrases () {

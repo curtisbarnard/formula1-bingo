@@ -19,6 +19,8 @@ body {
 /*******************************************/
 header,
 .race,
+.card,
+.front,
 .score {
   display: flex;
   justify-content: center;
@@ -53,8 +55,8 @@ main {
   flex-wrap: wrap;
 }
 .card {
-  width: 30%;
-  height: 30%;
+  width: 33.33%;
+  height: 33.33%;
   transform-style: preserve-3d;
   transition: all 0.8s ease;
 }
@@ -117,7 +119,8 @@ main {
  }
 
 .free {
-
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 footer {
   background: #15151E;

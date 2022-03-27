@@ -80,7 +80,6 @@ main {
   transform: rotateY(180deg);
   border-radius: .5rem;
   border: 1px solid #15151E;
-  z-index: 1;
 }
 .back1,
 .back2,

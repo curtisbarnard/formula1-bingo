@@ -19,9 +19,7 @@ body {
 /*******************************************/
 header,
 .race,
-.score,
-.card,
-.front {
+.score {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -49,13 +47,14 @@ header {
 }
 main {
   margin: 0 auto;
-  width: 95%;
+  width: 95vw;
+  height: 95vw;
   display: flex;
   flex-wrap: wrap;
 }
 .card {
-  flex-basis: 33.33%;
-  aspect-ratio: 1/1;
+  width: 30%;
+  height: 30%;
   transform-style: preserve-3d;
   transition: all 0.8s ease;
 }
@@ -118,8 +117,7 @@ main {
  }
 
 .free {
-  flex-direction: column;
-  justify-content: space-evenly;
+
 }
 footer {
   background: #15151E;

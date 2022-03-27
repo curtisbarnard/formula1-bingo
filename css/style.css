@@ -244,6 +244,3 @@ h3 {
 .flipped {
   transform: rotateY(180deg);
 }
-.frontHide {
-  transform: translateZ(1rem)
-}

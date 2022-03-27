@@ -21,14 +21,27 @@ const standardBingoCards = [
     'Rainbow flag',
     'Crofty says stinker',
     'Hulkenberg replaces a driver',
-    'Commentator mentions Guanyu Zhou being the first Chinese F1 driver',
+    'Commentator mentions Guanyu Zhou being the 1st Chinese F1 driver',
     '"Full Beans"',
     '"Car looks like it\'s on rails"',
     'Bottas finishes ahead of both Mercedes',
     'Horner\s foot tapping',
     'Toto shaking his head in disgust',
+    'Haas Podium',
+    'Helmet Cam View',
+    'McLaren finish in the top 10',
+]
+
+const ferrariWinning = [
     'Ferrari Wins',
-    'Haas Podium'
+    'Charles Leclerc Wins',
+    'Carlos Sainz Wins',
+]
+
+const redBullWinning = [
+    'Red Bull Wins',
+    'Checo Wins',
+    'Max Verstappen Wins',
 ]
 
 const bahrainBingoCards = [
@@ -42,11 +55,11 @@ const bahrainBingoCards = [
     'Commentator mentions Lewis\' yellow T-bar cam',
     '"Mirror Wars"',
     'Haas in the points',
+    'Someone crashes at turn 22',
 ]
 
 const saudiBingoCards = [
     'Someone talks about the Mercedes side pods',
-    'Someone talks about McLaren\'s brake issues',
     'Someone talks about Ricciardo giving Vettel COVID',
     'Haas ends up in the points',
     'Someone says the word porpoising',
@@ -55,13 +68,35 @@ const saudiBingoCards = [
     'A Red Bull DNF\'s',
 ]
 
-const currentRaceBingoCards = standardBingoCards.concat(saudiBingoCards)
+// randomizer function with boundary numbers (inclusive)
+function randomizer (arrayIndex0, arrayIndexN) {
+    return Math.floor(Math.random() * (arrayIndexN + 1 - arrayIndex0)) + arrayIndex0
+}
+
+// get array elements from winning arrays so there is no conflict tiles
+function winningArray (arr1, arr2) {
+    let random = randomizer(0,1)
+    const winningArray = []
+    let arr = []
+    if (random === 0){
+        arr = arr1 
+    }else if (random === 1){
+        arr = arr2
+    }
+    winningArray.push(arr[0])
+    winningArray.push(arr[randomizer(1,2)])
+    return winningArray
+}
+
+// Combine arrays into single array for the weekend
+const currentRaceBingoCards = standardBingoCards.concat(saudiBingoCards).concat(winningArray(ferrariWinning, redBullWinning))
+console.log(currentRaceBingoCards)
 
 // randomly assign bingo phrases to cards
 function assignPhrases () {
     for (item of frontCards) {
         // generate random number based on array size
-        let randomNumber = Math.floor(Math.random() * currentRaceBingoCards.length)
+        let randomNumber = randomizer(0, currentRaceBingoCards.length - 1)
         // excludes the free or gratis center card
         if (!(item.classList.contains("free"))) {
             // place phrase into card on DOM

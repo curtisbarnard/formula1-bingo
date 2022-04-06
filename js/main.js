@@ -77,7 +77,8 @@ const australiaBingoCards = [
     '"Mirror Wars"',
     'A Red Bull DNF\'s',
     'Las Vegas track is mentioned',
-    '"Leclerc leads the championship',
+    '"Leclerc leads the championship"',
+    '"Last time we were in Australia was 2019"',
     
 ]
 

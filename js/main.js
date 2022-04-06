@@ -30,6 +30,9 @@ const standardBingoCards = [
     'Haas Podium',
     'Helmet Cam View',
     'McLaren finish in the top 10',
+    'Haas ends up in the points',
+    'Crofty calls George Russel Mr. Saturday', //from u/krishal_743
+    '"Two seconds Ted"', //from u/OhRatFarts
 ]
 
 const ferrariWinning = [
@@ -68,6 +71,16 @@ const saudiBingoCards = [
     'A Red Bull DNF\'s',
 ]
 
+const australiaBingoCards = [
+    'Someone says the word porpoising',
+    'Commentator mentions Lewis\' yellow T-bar cam',
+    '"Mirror Wars"',
+    'A Red Bull DNF\'s',
+    'Las Vegas track is mentioned',
+    '"Leclerc leads the championship',
+    
+]
+
 // randomizer function with boundary numbers (inclusive)
 function randomizer (arrayIndex0, arrayIndexN) {
     return Math.floor(Math.random() * (arrayIndexN + 1 - arrayIndex0)) + arrayIndex0
@@ -89,7 +102,7 @@ function winningArray (arr1, arr2) {
 }
 
 // Combine arrays into single array for the weekend
-const currentRaceBingoCards = standardBingoCards.concat(saudiBingoCards).concat(winningArray(ferrariWinning, redBullWinning))
+const currentRaceBingoCards = standardBingoCards.concat(australiaBingoCards).concat(winningArray(ferrariWinning, redBullWinning))
 console.log(currentRaceBingoCards)
 
 // randomly assign bingo phrases to cards

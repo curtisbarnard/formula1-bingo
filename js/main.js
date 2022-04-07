@@ -15,7 +15,7 @@ const standardBingoCards = [
     'Gap to the winner is 10+ seconds',
     '"DAY-bree"',
     'Someone says DRS train',
-    'Wheel covers are called cake tins',
+    'Brake shrouds are called cake tins',
     'Non-F1 celebrity in the garage',
     'Wheel gets stuck in pit stop',
     'Rainbow flag',

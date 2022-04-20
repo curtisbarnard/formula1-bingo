@@ -1,13 +1,16 @@
 /* Base Styles */
-*{
+* {
   box-sizing: border-box;
 }
 html {
   font-size: 62.5%;
 }
-body {
+body,
+button {
   font-family: 'Titillium Web', sans-serif;
-  background: #15151E;
+}
+body {
+  background: #15151e;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,7 +32,7 @@ header,
 header {
   width: 100%;
   height: 10vh;
-  background: #E7122C;
+  background: #e7122c;
   border-bottom: 3px solid #fff;
 }
 .race {
@@ -68,8 +71,8 @@ main {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   background: #fff;
-  border: 2px solid #15151E;
-  border-radius: .5rem;
+  border: 2px solid #15151e;
+  border-radius: 0.5rem;
 }
 .back {
   position: absolute;
@@ -78,8 +81,8 @@ main {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   transform: rotateY(180deg);
-  border-radius: .5rem;
-  border: 1px solid #15151E;
+  border-radius: 0.5rem;
+  border: 1px solid #15151e;
 }
 .back1,
 .back2,
@@ -90,46 +93,46 @@ main {
 .back7,
 .back8,
 .back9 {
- background: url(../img/mobile1.jpg), #15151E;
- background-repeat: no-repeat;
- background-position: top left;
- background-size: 95vw auto;
+  background: url(../img/mobile1.jpg), #15151e;
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-size: 95vw auto;
 }
 .back2 {
   background-position: top center;
- }
+}
 .back3 {
   background-position: top right;
- }
+}
 .back4 {
   background-position: center left;
- }
+}
 .back5 {
   background-position: center;
- }
+}
 .back6 {
   background-position: center right;
- }
+}
 .back7 {
   background-position: bottom left;
- }
+}
 .back8 {
   background-position: bottom center;
- }
+}
 .back9 {
   background-position: bottom right;
- }
+}
 
 .free {
   flex-direction: column;
   justify-content: space-evenly;
 }
 footer {
-  background: #15151E;
+  background: #15151e;
   flex-grow: 1;
   align-self: center;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   width: 95%;
 }
@@ -138,7 +141,14 @@ footer svg {
   fill: #fff;
   padding: 10px 0;
 }
-@media all and (min-width: 550px ) {
+footer button {
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  background-color: #e7122c;
+  color: #fff;
+}
+@media all and (min-width: 550px) {
   .race {
     justify-content: center;
     gap: 35px;
@@ -152,35 +162,35 @@ footer svg {
   .back7,
   .back8,
   .back9 {
-    background: url(../img/desktop1.jpg), #15151E;
+    background: url(../img/desktop1.jpg), #15151e;
   }
   .back2 {
     background-position: top center;
-   }
+  }
   .back3 {
     background-position: top right;
-   }
+  }
   .back4 {
     background-position: center left;
-   }
+  }
   .back5 {
     background-position: center;
-   }
+  }
   .back6 {
     background-position: center right;
-   }
+  }
   .back7 {
     background-position: bottom left;
-   }
+  }
   .back8 {
     background-position: bottom center;
-   }
+  }
   .back9 {
     background-position: bottom right;
-   }
+  }
 }
 
-@media all and (min-width: 900px ) {
+@media all and (min-width: 900px) {
   main,
   .race,
   footer {
@@ -219,13 +229,14 @@ h3 {
   font-size: 2.4rem;
   color: #fff;
 }
-.card {
+.card,
+button {
   font-size: 1.8rem;
   cursor: pointer;
   text-align: center;
 }
 
-@media all and (min-width: 900px ) {
+@media all and (min-width: 900px) {
   h1 {
     font-size: 3.6rem;
   }

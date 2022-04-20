@@ -19,31 +19,70 @@ for (let item of cards) {
   });
 }
 
+// Seasons worth of race objects!
+class Race {
+  constructor(storageName, domTitle, year, month, day) {
+    this.storageName = storageName;
+    this.domTitle = domTitle;
+    this.startDate = new Date(year, month - 1, day);
+  }
+}
+const bahrain = new Race('bahrain', 'Bahrain Grand Prix', 2022, 3, 18);
+const saudiArabia = new Race(
+  'saudiArabia',
+  'Saudi Arabian Grand Prix',
+  2022,
+  3,
+  25
+);
+const australia = new Race('australia', 'Australian Grand Prix', 2022, 4, 8);
+const imola = new Race('imola', 'Imola Grand Prix', 2022, 4, 22);
+const miami = new Race('miami', 'Miami Grand Prix', 2022, 5, 6);
+const spain = new Race('spain', 'Spanish Grand Prix', 2022, 5, 20);
+const monaco = new Race('monaco', 'Monaco Grand Prix', 2022, 5, 27);
+const azerbaijan = new Race('azerbaijan', 'Azerbaijan Grand Prix', 2022, 6, 10);
+const canada = new Race('canada', 'Canadian Grand Prix', 2022, 6, 17);
+const britain = new Race('britain', 'British Grand Prix', 2022, 7, 1);
+const austria = new Race('austria', 'Austrian Grand Prix', 2022, 7, 8);
+const france = new Race('france', 'French Grand Prix', 2022, 7, 22);
+const hungary = new Race('hungary', 'Hungarian Grand Prix', 2022, 7, 29);
+const belgium = new Race('belgium', 'Belgian Grand Prix', 2022, 8, 26);
+const netherlands = new Race('netherlands', 'Dutch Grand Prix', 2022, 9, 2);
+const monza = new Race('monza', 'Italian Grand Prix', 2022, 9, 9);
+const singapore = new Race('singapore', 'Singapore Grand Prix', 2022, 9, 30);
+const japan = new Race('japan', 'Japanese Grand Prix', 2022, 10, 7);
+const austin = new Race('austin', 'Austin Grand Prix', 2022, 10, 21);
+const mexico = new Race('mexico', 'Mexican Grand Prix', 2022, 10, 28);
+const brazil = new Race('brazil', 'Brazilian Grand Prix', 2022, 11, 11);
+const abuDhabi = new Race('abuDhabi', 'Abu Dhabi Grand Prix', 2022, 11, 18);
+
 // Array of races
 const races = [
-  'bahrain',
-  'saudiArabia',
-  'australia',
-  'imola',
-  'miami',
-  'spain',
-  'monaco',
-  'azerbaijan',
-  'canada',
-  'greatBritain',
-  'austria',
-  'france',
-  'hungary',
-  'belgium',
-  'netherlands',
-  'monza',
-  'singapore',
-  'japan',
-  'austin',
-  'mexico',
-  'brazil',
-  'abuDhabi',
+  bahrain,
+  saudiArabia,
+  australia,
+  imola,
+  miami,
+  spain,
+  monaco,
+  azerbaijan,
+  canada,
+  britain,
+  austria,
+  france,
+  hungary,
+  belgium,
+  netherlands,
+  monza,
+  singapore,
+  japan,
+  austin,
+  mexico,
+  brazil,
+  abuDhabi,
 ];
+
+// get current race
 
 // Array of standard strings
 const standardBingoCards = [
@@ -242,7 +281,9 @@ function submitRacePoints() {
 function getSeasonTotal() {
   let total = 0;
   races.forEach((race) => {
-    total += localStorage.getItem(race) ? +localStorage.getItem(race) : 0;
+    total += localStorage.getItem(race.storageName)
+      ? +localStorage.getItem(race.storageName)
+      : 0;
   });
   return total;
 }

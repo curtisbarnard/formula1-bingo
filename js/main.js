@@ -15,7 +15,7 @@ for (let item of cards) {
     pointValue += checkForBingo(downPatterns);
     pointValue += checkForBingo(diagonalPatterns);
     // writes points to the DOM
-    writePointValue('.racePoints', pointValue);
+    writeToDOM('.racePoints', pointValue);
   });
 }
 
@@ -302,9 +302,16 @@ function getSeasonTotal() {
 }
 
 // write point values to DOM
-function writePointValue(className, value) {
+function writeToDOM(className, value) {
   document.querySelector(className).innerText = value;
 }
 
 // write season total points to DOM
-writePointValue('.seasonPoints', getSeasonTotal());
+writeToDOM('.seasonPoints', getSeasonTotal());
+
+// write current race header to DOM
+writeToDOM('.race h2', races[getCurrentRaceIndex()].domTitle);
+
+// TODO update svg based on race
+// TODO update phrase array based on race
+// TODO max width on point values

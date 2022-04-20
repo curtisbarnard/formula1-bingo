@@ -83,6 +83,17 @@ const races = [
 ];
 
 // get current race
+// get todays date
+// compare todays date until you find date that is greater. Use previous race data
+function getCurrentRaceIndex() {
+  const today = new Date();
+  let i = 0;
+  while (today > races[i].startDate) {
+    i++;
+    console.log(i);
+  }
+  return i - 1;
+}
 
 // Array of standard strings
 const standardBingoCards = [
@@ -270,11 +281,13 @@ document
   .addEventListener('click', submitRacePoints);
 
 function submitRacePoints() {
-  // grab current race name
   // grab value in .racePoints and store in local storage
   pointValue = document.querySelector('.racePoints').innerText;
   // local storage variable named after race
-  localStorage.setItem(races[3], String(pointValue));
+  localStorage.setItem(
+    races[getCurrentRaceIndex()].storageName,
+    String(pointValue)
+  );
 }
 
 // get season total of points

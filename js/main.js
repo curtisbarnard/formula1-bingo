@@ -2,6 +2,49 @@
 const cards = document.getElementsByClassName('card');
 let frontCards = document.getElementsByClassName('front');
 
+for (let item of cards) {
+  // function toggle the flipped class on card
+  item.addEventListener('click', function flipCard() {
+    item.classList.toggle('flipped');
+    // grabs all cards that are flipped
+    const flippedCards = document.getElementsByClassName('flipped');
+    // adds up all standard points
+    let pointValue = flippedCards.length * 5;
+    // check for bingo down and across
+    pointValue += checkForBingo(acrossPatterns);
+    pointValue += checkForBingo(downPatterns);
+    pointValue += checkForBingo(diagonalPatterns);
+    // writes points to the DOM
+    writePointValue('.racePoints', pointValue);
+  });
+}
+
+// Array of races
+const races = [
+  'bahrain',
+  'saudiArabia',
+  'australia',
+  'imola',
+  'miami',
+  'spain',
+  'monaco',
+  'azerbaijan',
+  'canada',
+  'greatBritain',
+  'austria',
+  'france',
+  'hungary',
+  'belgium',
+  'netherlands',
+  'monza',
+  'singapore',
+  'japan',
+  'austin',
+  'mexico',
+  'brazil',
+  'abuDhabi',
+];
+
 // Array of standard strings
 const standardBingoCards = [
   '"Massive shunt"',
@@ -112,7 +155,6 @@ function winningArray(arr1, arr2) {
 const currentRaceBingoCards = standardBingoCards
   .concat(imolaBingoCards)
   .concat(winningArray(ferrariWinning, redBullWinning));
-console.log(currentRaceBingoCards);
 
 // randomly assign bingo phrases to cards
 function assignPhrases() {
@@ -132,7 +174,6 @@ assignPhrases();
 function randomBGImage() {
   let randomNumber = Math.ceil(Math.random() * 3);
   let viewportWidth = window.innerWidth;
-  console.log(viewportWidth);
   for (i = 1; i < 10; i++) {
     if (viewportWidth < 550) {
       document.querySelector('.back' + i).style.backgroundImage =
@@ -143,7 +184,6 @@ function randomBGImage() {
     }
   }
 }
-
 randomBGImage();
 
 // Arrays for checking bingo patterns
@@ -161,23 +201,6 @@ const diagonalPatterns = [
   [1, 5, 9],
   [3, 5, 7],
 ];
-
-for (let item of cards) {
-  // function toggle the flipped class on card
-  item.addEventListener('click', function flipCard() {
-    item.classList.toggle('flipped');
-    // grabs all cards that are flipped
-    const flippedCards = document.getElementsByClassName('flipped');
-    // adds up all standard points
-    let pointValue = flippedCards.length * 5;
-    // check for bingo down and across
-    pointValue += checkForBingo(acrossPatterns);
-    pointValue += checkForBingo(downPatterns);
-    pointValue += checkForBingo(diagonalPatterns);
-    // writes points to the DOM
-    document.querySelector('.points').innerText = pointValue;
-  });
-}
 
 // function that takes an array of bingo patterns and checks if there are bingos
 function checkForBingo(array) {
@@ -201,3 +224,33 @@ function checkForBingo(array) {
   // return total points based on number of bingos
   return numOfBingos * 30;
 }
+
+// event listener for submit button
+document
+  .getElementById('submitBtn')
+  .addEventListener('click', submitRacePoints);
+
+function submitRacePoints() {
+  // grab current race name
+  // grab value in .racePoints and store in local storage
+  pointValue = document.querySelector('.racePoints').innerText;
+  // local storage variable named after race
+  localStorage.setItem(races[3], String(pointValue));
+}
+
+// get season total of points
+function getSeasonTotal() {
+  let total = 0;
+  races.forEach((race) => {
+    total += localStorage.getItem(race) ? +localStorage.getItem(race) : 0;
+  });
+  return total;
+}
+
+// write point values to DOM
+function writePointValue(className, value) {
+  document.querySelector(className).innerText = value;
+}
+
+// write season total points to DOM
+writePointValue('.seasonPoints', getSeasonTotal());

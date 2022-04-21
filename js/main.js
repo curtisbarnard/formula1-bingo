@@ -19,24 +19,88 @@ for (let item of cards) {
   });
 }
 
+// Race specific phrases
+const bahrainBingoCards = [
+  'Someone talks about the Mercedes side pods',
+  '"Hulkenberg has 3rd most race starts without a win"',
+  "Someone talks about McLaren's brake issues",
+  'Someone talks about Ricciardo giving Vettel COVID',
+  'Haas ends up in the points',
+  'Someone says the word porpoising',
+  '"Hulk"',
+  "Commentator mentions Lewis' yellow T-bar cam",
+  '"Mirror Wars"',
+  'Haas in the points',
+  'Someone crashes at turn 22',
+];
+
+const saudiBingoCards = [
+  'Someone talks about the Mercedes side pods',
+  'Someone talks about Ricciardo giving Vettel COVID',
+  'Haas ends up in the points',
+  'Someone says the word porpoising',
+  "Commentator mentions Lewis' yellow T-bar cam",
+  '"Mirror Wars"',
+  "A Red Bull DNF's",
+];
+
+const australiaBingoCards = [
+  'Someone says the word porpoising',
+  "Commentator mentions Lewis' yellow T-bar cam",
+  '"Mirror Wars"',
+  "A Red Bull DNF's",
+  'Las Vegas track is mentioned',
+  '"Leclerc leads the championship"',
+  '"Last time we were in Australia was 2019"',
+];
+
+const imolaBingoCards = [
+  'Someone says the word porpoising',
+  "A Red Bull DNF's",
+  '"Leclerc leads the championship"',
+];
+
 // Seasons worth of race objects!
 class Race {
-  constructor(storageName, domTitle, year, month, day) {
+  constructor(storageName, domTitle, year, month, day, phrases) {
     this.storageName = storageName;
     this.domTitle = domTitle;
     this.startDate = new Date(year, month - 1, day);
+    this.phrases = phrases;
   }
 }
-const bahrain = new Race('bahrain', 'Bahrain Grand Prix', 2022, 3, 18);
+const bahrain = new Race(
+  'bahrain',
+  'Bahrain Grand Prix',
+  2022,
+  3,
+  18,
+  bahrainBingoCards
+);
 const saudiArabia = new Race(
   'saudiArabia',
   'Saudi Arabian Grand Prix',
   2022,
   3,
-  25
+  25,
+  saudiBingoCards
 );
-const australia = new Race('australia', 'Australian Grand Prix', 2022, 4, 8);
-const imola = new Race('imola', 'Imola Grand Prix', 2022, 4, 22);
+const australia = new Race(
+  'australia',
+  'Australian Grand Prix',
+  2022,
+  4,
+  8,
+  australiaBingoCards
+);
+const imola = new Race(
+  'imola',
+  'Imola Grand Prix',
+  2022,
+  4,
+  22,
+  imolaBingoCards
+);
 const miami = new Race('miami', 'Miami Grand Prix', 2022, 5, 6);
 const spain = new Race('spain', 'Spanish Grand Prix', 2022, 5, 20);
 const monaco = new Race('monaco', 'Monaco Grand Prix', 2022, 5, 27);
@@ -139,46 +203,6 @@ const ferrariWinning = [
 
 const redBullWinning = ['Red Bull Wins', 'Checo Wins', 'Max Verstappen Wins'];
 
-const bahrainBingoCards = [
-  'Someone talks about the Mercedes side pods',
-  '"Hulkenberg has 3rd most race starts without a win"',
-  "Someone talks about McLaren's brake issues",
-  'Someone talks about Ricciardo giving Vettel COVID',
-  'Haas ends up in the points',
-  'Someone says the word porpoising',
-  '"Hulk"',
-  "Commentator mentions Lewis' yellow T-bar cam",
-  '"Mirror Wars"',
-  'Haas in the points',
-  'Someone crashes at turn 22',
-];
-
-const saudiBingoCards = [
-  'Someone talks about the Mercedes side pods',
-  'Someone talks about Ricciardo giving Vettel COVID',
-  'Haas ends up in the points',
-  'Someone says the word porpoising',
-  "Commentator mentions Lewis' yellow T-bar cam",
-  '"Mirror Wars"',
-  "A Red Bull DNF's",
-];
-
-const australiaBingoCards = [
-  'Someone says the word porpoising',
-  "Commentator mentions Lewis' yellow T-bar cam",
-  '"Mirror Wars"',
-  "A Red Bull DNF's",
-  'Las Vegas track is mentioned',
-  '"Leclerc leads the championship"',
-  '"Last time we were in Australia was 2019"',
-];
-
-const imolaBingoCards = [
-  'Someone says the word porpoising',
-  "A Red Bull DNF's",
-  '"Leclerc leads the championship"',
-];
-
 // randomizer function with boundary numbers (inclusive)
 function randomizer(arrayIndex0, arrayIndexN) {
   return (
@@ -203,7 +227,7 @@ function winningArray(arr1, arr2) {
 
 // Combine arrays into single array for the weekend
 const currentRaceBingoCards = standardBingoCards
-  .concat(imolaBingoCards)
+  .concat(races[getCurrentRaceIndex()].phrases)
   .concat(winningArray(ferrariWinning, redBullWinning));
 
 // randomly assign bingo phrases to cards
@@ -312,6 +336,13 @@ writeToDOM('.seasonPoints', getSeasonTotal());
 // write current race header to DOM
 writeToDOM('.race h2', races[getCurrentRaceIndex()].domTitle);
 
-// TODO update svg based on race
-// TODO update phrase array based on race
-// TODO max width on point values
+// Update svg based on race
+function updateRaceSVG() {
+  document.querySelector('.race img').src = `img/${
+    races[getCurrentRaceIndex()].storageName
+  }.svg`;
+  document.querySelector('.race img').alt = `${
+    races[getCurrentRaceIndex()].domTitle
+  } Track Layout`;
+}
+updateRaceSVG();

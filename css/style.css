@@ -41,7 +41,7 @@ header {
   align-items: flex-end;
   flex-grow: 1;
 }
-.race svg {
+.race img {
   max-width: 100px;
   height: auto;
   padding: 10px 0 4px 0;
@@ -194,7 +194,8 @@ footer button {
 @media all and (min-width: 900px) {
   main,
   .race,
-  footer {
+  footer,
+  .score {
     max-width: 850px;
   }
   main {

@@ -218,7 +218,7 @@ const standardBingoCards = [
   'Helmet Cam View',
   'McLaren finish in the top 10',
   'Haas ends up in the points',
-  'Crofty calls George Russel Mr. Saturday', //from u/krishal_743
+  'Crofty calls George Russell Mr. Saturday', //from u/krishal_743
   '"Two seconds Ted"', //from u/OhRatFarts
   'Sky race control, down to you',
   'Great little scrap',

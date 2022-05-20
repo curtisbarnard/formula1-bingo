@@ -68,6 +68,14 @@ const miamiBingoCards = [
   'Latifi crashes',
 ];
 
+const spainBingoCards = [
+  'Someone says the word porpoising',
+  'Hamilton out of the points',
+  '"Leclerc leads the championship"',
+  'Latifi crashes',
+  'Pole position wins the race',
+];
+
 // Seasons worth of race objects!
 class Race {
   constructor(storageName, domTitle, year, month, day, phrases) {
@@ -117,7 +125,14 @@ const miami = new Race(
   6,
   miamiBingoCards
 );
-const spain = new Race('spain', 'Spanish Grand Prix', 2022, 5, 20);
+const spain = new Race(
+  'spain',
+  'Spanish Grand Prix',
+  2022,
+  5,
+  20,
+  spainBingoCards
+);
 const monaco = new Race('monaco', 'Monaco Grand Prix', 2022, 5, 27);
 const azerbaijan = new Race('azerbaijan', 'Azerbaijan Grand Prix', 2022, 6, 10);
 const canada = new Race('canada', 'Canadian Grand Prix', 2022, 6, 17);
@@ -208,6 +223,8 @@ const standardBingoCards = [
   'Sky race control, down to you',
   'Great little scrap',
   'Stroll gets a penalty',
+  '"Fresh pair of boots"',
+  'Bleeped word on team radio',
 ];
 
 const ferrariWinning = [

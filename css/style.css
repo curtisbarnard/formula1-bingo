@@ -154,17 +154,6 @@ footer button {
     justify-content: center;
     gap: 35px;
   }
-  .back1,
-  .back2,
-  .back3,
-  .back4,
-  .back5,
-  .back6,
-  .back7,
-  .back8,
-  .back9 {
-    background: url(../img/desktop1.jpg), #15151e;
-  }
   .back2 {
     background-position: top center;
   }

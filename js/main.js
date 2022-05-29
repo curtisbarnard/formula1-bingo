@@ -76,6 +76,13 @@ const spainBingoCards = [
   'Pole position wins the race',
 ];
 
+const monacoBingoCards = [
+  'Someone says the word porpoising',
+  'Crash at the swimming pool',
+  'Pole position wins the race',
+  'Shot of people on a yacht',
+];
+
 // Seasons worth of race objects!
 class Race {
   constructor(storageName, domTitle, year, month, day, phrases) {
@@ -133,7 +140,14 @@ const spain = new Race(
   20,
   spainBingoCards
 );
-const monaco = new Race('monaco', 'Monaco Grand Prix', 2022, 5, 27);
+const monaco = new Race(
+  'monaco',
+  'Monaco Grand Prix',
+  2022,
+  5,
+  27,
+  monacoBingoCards
+);
 const azerbaijan = new Race('azerbaijan', 'Azerbaijan Grand Prix', 2022, 6, 10);
 const canada = new Race('canada', 'Canadian Grand Prix', 2022, 6, 17);
 const britain = new Race('britain', 'British Grand Prix', 2022, 7, 1);

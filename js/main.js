@@ -85,8 +85,26 @@ const monacoBingoCards = [
 
 const azerbaijanBingoCards = [
   'Someone says the word porpoising',
-  'Pole position wins the race',
+  'Crash on the pit straight',
+  'Crash at turn 3',
 ];
+
+const canadaBingoCards = [
+  'Someone says the word porpoising',
+  'Crash at Wall of Champions',
+  '"Stroll/Latifi home race"',
+  'Groundhog on track',
+];
+
+const britainBingoCards = [
+  'Someone says the word porpoising',
+  'Crash at Vale/Club',
+  'Overtake at Copse',
+];
+
+const austinBingoCards = ['Different winner in sprint than race'];
+
+const brazilBingoCards = ['Different winner in sprint than race'];
 
 // Seasons worth of race objects!
 class Race {
@@ -161,8 +179,22 @@ const azerbaijan = new Race(
   10,
   azerbaijanBingoCards
 );
-const canada = new Race('canada', 'Canadian Grand Prix', 2022, 6, 17);
-const britain = new Race('britain', 'British Grand Prix', 2022, 7, 1);
+const canada = new Race(
+  'canada',
+  'Canadian Grand Prix',
+  2022,
+  6,
+  17,
+  canadaBingoCards
+);
+const britain = new Race(
+  'britain',
+  'British Grand Prix',
+  2022,
+  7,
+  1,
+  britainBingoCards
+);
 const austria = new Race('austria', 'Austrian Grand Prix', 2022, 7, 8);
 const france = new Race('france', 'French Grand Prix', 2022, 7, 22);
 const hungary = new Race('hungary', 'Hungarian Grand Prix', 2022, 7, 29);
@@ -171,9 +203,23 @@ const netherlands = new Race('netherlands', 'Dutch Grand Prix', 2022, 9, 2);
 const monza = new Race('monza', 'Italian Grand Prix', 2022, 9, 9);
 const singapore = new Race('singapore', 'Singapore Grand Prix', 2022, 9, 30);
 const japan = new Race('japan', 'Japanese Grand Prix', 2022, 10, 7);
-const austin = new Race('austin', 'Austin Grand Prix', 2022, 10, 21);
+const austin = new Race(
+  'austin',
+  'Austin Grand Prix',
+  2022,
+  10,
+  21,
+  austinBingoCards
+);
 const mexico = new Race('mexico', 'Mexican Grand Prix', 2022, 10, 28);
-const brazil = new Race('brazil', 'Brazilian Grand Prix', 2022, 11, 11);
+const brazil = new Race(
+  'brazil',
+  'Brazilian Grand Prix',
+  2022,
+  11,
+  11,
+  brazilBingoCards
+);
 const abuDhabi = new Race('abuDhabi', 'Abu Dhabi Grand Prix', 2022, 11, 18);
 
 // Array of races
@@ -251,6 +297,7 @@ const standardBingoCards = [
   'Stroll gets a penalty',
   '"Fresh pair of boots"',
   'Bleeped word on team radio',
+  'Fastest lap NOT Ferrari or Red Bull',
 ];
 
 const ferrariWinning = [
